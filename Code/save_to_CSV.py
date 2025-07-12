@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from Feature_extractor import extract_simplified_features  # Make sure this function is in Feature_extractor.py
 
-# Path to your video folder
+# Path to video folder
 video_folder = "../Dadaset"
 
 #This reads only the first frame of each video.we must get 2 at least, or average multiple frames 
@@ -16,7 +16,7 @@ pose = mp_pose.Pose(static_image_mode=True, min_detection_confidence=0.5)
 # List to collect data
 data = []
 
-# Loop through all files in the dataset
+# Loop through all files
 for filename in os.listdir(video_folder):
     if filename.endswith(".mp4"):
         filepath = os.path.join(video_folder, filename)
