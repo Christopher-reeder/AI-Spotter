@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import pickle
 
-# MediaPipe 초기화
+# MediaPipe 초기화                # Initialize MediaPipe pose estimator
 mp_pose = mp.solutions.pose
 pose = mp_pose.Pose(static_image_mode=True, min_detection_confidence=0.5)
 
@@ -34,10 +34,12 @@ def extract_simplified_features(landmarks):
     knee_distance = np.sqrt((right_knee[0]-left_knee[0])**2 + (right_knee[1]-left_knee[1])**2)
     features.append(knee_distance)
     
-    # 3. 무릎-어깨 수직 정렬
+    # 3. 무릎-어깨 수직 정렬             # Feature 3: Alignment differences (for symmetry)
     knee_alignment_left = left_knee[0] - left_shoulder[0]
     knee_alignment_right = right_shoulder[0] - right_knee[0]
     features.extend([knee_alignment_left, knee_alignment_right])
     
     return features
+
+
 
