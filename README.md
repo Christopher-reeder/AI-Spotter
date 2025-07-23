@@ -1,1 +1,1 @@
-# AI-Spotter
+# Posture-Corrector
