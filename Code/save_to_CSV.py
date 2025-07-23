@@ -3,7 +3,7 @@ import cv2
 import mediapipe as mp
 import numpy as np
 import pandas as pd
-from Feature_extractor import extract_simplified_features  # Make sure this function is in Feature_extractor.py
+from feature_extractor import extract_features  # Make sure this function is in Feature_extractor.py
 
 # Path to video folder
 video_folder = "../Dadaset"
@@ -42,7 +42,7 @@ for filename in os.listdir(video_folder):
         # If pose is detected
         if results.pose_landmarks:
             landmarks = results.pose_landmarks.landmark
-            features = extract_simplified_features(landmarks)
+            features = extract_features(landmarks)
             features.append(label)
             data.append(features)
 
